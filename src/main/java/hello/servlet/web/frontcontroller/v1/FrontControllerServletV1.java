@@ -14,12 +14,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 // 이 url패턴 아래 url은 전부 이 서블릿이 호출됨.
-@WebServlet(name="frontControllerServlet", urlPatterns = "/front-controller/v1/*")
-public class FrontControllerServlet extends HttpServlet {
+@WebServlet(name="frontControllerServletV1", urlPatterns = "/front-controller/v1/*")
+public class FrontControllerServletV1 extends HttpServlet {
 
     private Map<String, ControllerV1> controllerMap = new HashMap<>();
 
-    public FrontControllerServlet() {
+    public FrontControllerServletV1() {
         controllerMap.put("/front-controller/v1/members/new-form", new MemberFormControllerV1());
         controllerMap.put("/front-controller/v1/members/save", new MemberSaveControllerV1());
         controllerMap.put("/front-controller/v1/members", new MemberListControllerV1());
@@ -27,7 +27,7 @@ public class FrontControllerServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("FrontControllerServlet.service");
+        System.out.println("FrontControllerServletV1.service");
 
         String requestURI = request.getRequestURI();
 
